@@ -1,12 +1,260 @@
-.projects {
-    display: none;
+
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Ephesis&family=Faster+One&family=IM+Fell+DW+Pica:ital@0;1&family=Rampart+One&display=swap');
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    /* to stack its children vertically on top of each other */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #97ca79;
+    color: #ffffff;
+
 }
-.about {
-    display: none;
+
+:root {
+    --primary-color: #98d475;
 }
-#dialogue-container {
+
+/* ------------- From Uiverse.io by alexruix ------------ */
+.pre-loader {
+    --loader-speed: 5s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.loader-content {
+    position: relative;
+    width: 80px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loader-text {
+    position: relative;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    color: #98d475;
+    animation: text_713 5s ease both infinite;
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-family: "Bodoni Moda SC", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+}
+
+.load {
+    background-color: #96ff6c;
+    border-radius: 50px;
+    display: block;
+    height: 16px;
+    width: 16px;
+    bottom: 0;
+    position: relative;
+    transform: translateX(64px);
+    animation: loading_713 5s ease both infinite;
+}
+
+.load::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #ccffc2;
+    border-radius: inherit;
+    animation: loading2_713 5s ease both infinite;
+}
+
+.loader-hidden {
+    opacity: 0;
+    pointer-events: none;
+    /*allows user to click things behind the hidden div*/
+}
+
+@keyframes text_713 {
+    0% {
+        letter-spacing: 1px;
+        transform: translateX(0px);
+    }
+
+    40% {
+        letter-spacing: 2px;
+        transform: translateX(26px);
+    }
+
+    80% {
+        letter-spacing: 1px;
+        transform: translateX(32px);
+    }
+
+    90% {
+        letter-spacing: 2px;
+        transform: translateX(0px);
+    }
+
+    100% {
+        letter-spacing: 1px;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes loading_713 {
+    0% {
+        width: 16px;
+        transform: translateX(0px);
+    }
+
+    40% {
+        width: 100%;
+        transform: translateX(0px);
+    }
+
+    80% {
+        width: 16px;
+        transform: translateX(64px);
+    }
+
+    90% {
+        width: 100%;
+        transform: translateX(0px);
+    }
+
+    100% {
+        width: 16px;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes loading2_713 {
+    0% {
+        transform: translateX(0px);
+        width: 16px;
+    }
+
+    40% {
+        transform: translateX(0%);
+        width: 80%;
+    }
+
+    80% {
+        width: 100%;
+        transform: translateX(0px);
+    }
+
+    90% {
+        width: 80%;
+        transform: translateX(15px);
+    }
+
+    100% {
+        transform: translateX(0px);
+        width: 16px;
+    }
+}
+
+/*----------------------------------------------------*/
+
+.projects {
+    display: none;
+}
+
+.about {
+    display: none;
+}
+
+#dialogue-container {
+    /* border: 2px solid wheat; */
+    text-align: center;
+    padding: 40px;
+}
+
+#dialogue-text {
+    font-family: "IM Fell DW Pica", serif;
+    font-weight: 100;
+    font-size: 1.5rem;
+    margin: 60px;
+    min-height: 2em;
+/*------------for text wavy animation------------*/
+}
+#dialogue-text span {
+    display: inline-block;
+    animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+/*----------------------------------------------------*/
+#next_btn {
+    background-color: transparent;
+    border: transparent;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#next_btn:hover,
+.links a:hover {
+    color: black;
+}
+
+.links,
+.links a {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 30px;
+    color: #ffffff;
+}
+/* for drop-down style */
+#project-icon {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    /* color: ; */
+    min-width: 120px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s;
+    pointer-events: none;
+    border-radius: 0.5rem;
+}
+#project-icon:hover .dropdown-content {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.dropdown-content p {
+    color:#000000;
+    padding: 0.5rem 1rem;
+    text-decoration: #96ff6c;
+    display: block;
+}
+.dropdown-content p:hover {
+    background-color: #68c43e;
 }
