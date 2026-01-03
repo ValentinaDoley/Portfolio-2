@@ -225,25 +225,25 @@ body {
     font-size: 30px;
     color: #ffffff;
 }
-/* -------for drop-down style------- */
+.icons {
 
-#project-icon {
     position: relative;
     display: inline-block;
 }
+/* -------for drop-down style------- */
 .dropdown-content {
     font-family: "IM Fell DW Pica", serif;
     position: absolute;
-    right: 100%;
-    
+    bottom: -10%; /* centered above the icon/ default position */
+    left: 10;
+
     background: white;
-    transform: translateX(10%) translateY(-10%);
     width: auto;
     border-radius: 0.5rem;
     z-index: 100;
     overflow: hidden; /* to crop the child element's overflow, specifically the sharp border corners of the p element on hover */
+    white-space: nowrap; /* to prevent the text from wrapping to the next line */
     box-shadow: 0px 2px 5px hsla(0, 0%, 0%, 0.2);
-    transition:  0.3s ease;
 
 /* hiding state*/
     opacity: 0;
@@ -251,14 +251,17 @@ body {
 
     /* for the delaying the dropdown dissapearance */
     transition: opacity 0.3s ease 0.4s, transform 0.3s ease 0.4s; /*2s transition-delay*/
+
 }
-#project-icon:hover .dropdown-content {
+.icons:hover .dropdown-content {
     opacity: 1;
     pointer-events: auto;
-
-    /*to override the delay so to remove the delay while appearing*/
+    /* transform: translateX(-50%) translateY(0%); */
+    transform: translateX(-50%) translateY(-80%);
+    /* to override the delay so to remove the delay while appearing */
     transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
 }
+ /* we write transfor, 2 times to define the starting position of the dropdown as well as the end position after it appears */
 .dropdown-content p {
     font-size: 1rem;
     color:#000000;
@@ -269,4 +272,9 @@ body {
 }
 .dropdown-content p:hover {
     background-color: #68c43e;
+}
+
+
+#projects {
+    display: none;
 }
