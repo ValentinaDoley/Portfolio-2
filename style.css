@@ -190,8 +190,8 @@ body {
     min-height: 2em;
     color: white;
 
-    /* position: relative;
-    display: inline-block; */
+    position: relative;
+    display: inline-block;
 
     /* FLOATING ANIMATION */
     animation: floating 3s ease-in-out infinite;
@@ -203,9 +203,18 @@ body {
 
     /* Position it below the text */
     bottom: -30px;
-    /* left: 50%; */
-    /* transform: translateX(); */
+    left: 50%;
+    transform: translateX(-50%);
 
+    /* To create the oval shape */
+    width: 80%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.658);
+    border-radius: 50%;
+    filter: blur(3px);
+    z-index: -1;
+
+/* THE SHADOW ANIMATION */
     animation: shadow-scale 3s ease-in-out infinite;
 }
 
@@ -217,20 +226,20 @@ body {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-20px); /* Move UP */
+        transform: translateY(-20px); /* To move UP */
     }
 }
 
 @keyframes shadow-scale {
     0%, 100% {
-        transform: translateX(-50%) scale(1);
+        transform: translateX(-50%) translateY(0) scale(1);
         opacity: 0.4;
     }
-    /* 50% {
+    50% {
         /* When text is high, shadow is small and faint */
-        /* transform: translateX(-50%) scale(0.6); */
-        /* opacity: 0.1; */
-    /*} */
+        transform: translateX(-50%) translateY(20px) scale(0.6);
+        opacity: 0.1;
+    }
 }
 
 #next_btn {
