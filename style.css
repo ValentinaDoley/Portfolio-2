@@ -177,8 +177,9 @@ body {
 }
 
 #dialogue-container {
-    /* border: 2px solid wheat; */
-    text-align: center;
+    display: flex;
+    flex-direction: column; /* to stack childrens vertically */
+    align-items: center; /* to center childrens horizontally */
     padding: 40px;
 }
 
@@ -243,6 +244,9 @@ body {
 }
 
 #next_btn {
+    display: block;
+    margin-top: 20px;
+    
     background-color: transparent;
     border: transparent;
     color: white;
