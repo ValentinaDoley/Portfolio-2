@@ -181,13 +181,16 @@ body {
     flex-direction: column; /* to stack childrens vertically */
     align-items: center; /* to center childrens horizontally */
     padding: 40px;
+    /* To ensure absolute elements don't spill inappropriately */
+    position: relative;
 }
 
 #dialogue-text {
     font-family: "IM Fell DW Pica", serif;
     font-weight: 100;
     font-size: 1.5rem;
-    margin: 60px;
+    /* Increased bottom margin for grass space */
+    margin: 60px 60px 100px 60px;
     min-height: 2em;
     color: white;
 
@@ -196,7 +199,22 @@ body {
 
     /* FLOATING ANIMATION */
     animation: floating 3s ease-in-out infinite;
+    z-index: 2; /* To keep text on top */
 }
+/* Animated Grass */
+#dialogue-text::before {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    /* Centered horizontally with a slight skew for wind start position */
+    transform: translateX(-50%) skewX(-2deg);
+
+    /* make it wide enough to cover the text width */
+    width: 140%;
+    height: 45px;
+
+    m
 /*THE SHADOW EFFECT*/
 #dialogue-text::after {
     content: "";
