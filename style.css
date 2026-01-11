@@ -9,9 +9,9 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #97ca79;
-    color: #ffffff;
-
+    background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 50%, #1E90FF 50%, #00008B 100%);
+    color: #fff27a;
+    /* overflow: hidden; */
 }
 
 :root {
@@ -175,7 +175,11 @@ body {
 .about {
     display: none;
 }
-
+.animation-wrapper {
+    position: relative;
+    display: inline-block;
+    /* padding-bottom: 80px; */
+}
 #dialogue-container {
     display: flex;
     flex-direction: column; /* to stack childrens vertically */
@@ -192,49 +196,61 @@ body {
     /* Increased bottom margin for grass space */
     margin: 60px 60px 100px 60px;
     min-height: 2em;
-    color: white;
-
-    position: relative;
-    display: inline-block;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px #000000;
+    z-index: 2;
 
     /* FLOATING ANIMATION */
     animation: floating 3s ease-in-out infinite;
-    z-index: 2; /* To keep text on top */
 }
-/* Animated Grass */
-#dialogue-text::before {
-    content: "";
+/* ANIMATED GRASS */
+.grass {
     position: absolute;
     bottom: -60px;
     left: 50%;
-    /* Centered horizontally with a slight skew for wind start position */
-    transform: translateX(-50%) skewX(-2deg);
-
-    /* make it wide enough to cover the text width */
+    transform-origin: bottom center;
+    /* make it wide enough to cover the text width for a nice patch */
     width: 140%;
     height: 45px;
 
-    m
+    /* a radiel gradient for a rounded mound, lighter green top, darker bottom */
+    background: radial-gradient(ellipse at top, #b4ff96d5, #68c43ed5);
+
+    /* complex border-radius for a stylized mound shape */
+    border-radius: 50% 50% 20% 20% / 70% 70% 30% 30%;
+    /* top-left, top-right, bottom-right, bottom-left / repeat for vertical radii */
+
+    /* to place it behind shadow and text */
+    z-index: -2;
+
+    /* WIND ANIMATION */
+    /* alternate so it sways back and fourth smoothly */
+    animation: grass-wind 4s ease-in-out infinite ;
+
+    border-bottom: 3px solid #4a8c2c;
+    
+}
 /*THE SHADOW EFFECT*/
-#dialogue-text::after {
-    content: "";
+.shadow {
     position: absolute;
 
-    /* Position it below the text */
-    bottom: -30px;
+    /* Position it below the text and above the grass center*/
+    bottom: -35px; /* exactly at grass level (ADJUST) */
     left: 50%;
     transform: translateX(-50%);
 
-    /* To create the oval shape */
+    /* To create the oval shape (narrower than the grass patch */
     width: 80%;
-    height: 8px;
-    background: rgba(0, 0, 0, 0.658);
+    height: 10px;
+
+    background: rgba(0, 0, 139, 0.3);
     border-radius: 50%;
-    filter: blur(3px);
-    z-index: -1;
+    filter: blur(5px);
+    /* to sit between grass and text */
+    z-index: -3;
 
 /* THE SHADOW ANIMATION */
-    animation: shadow-scale 3s ease-in-out infinite;
+    animation: ripple 3s ease-in-out infinite;
 }
 
 
@@ -251,13 +267,24 @@ body {
 
 @keyframes shadow-scale {
     0%, 100% {
-        transform: translateX(-50%) translateY(0) scale(1);
+        transform: translateX(-50%)scale(1);
         opacity: 0.4;
     }
     50% {
         /* When text is high, shadow is small and faint */
-        transform: translateX(-50%) translateY(20px) scale(0.6);
+        transform: translateX(-50%) scale(0.6);
         opacity: 0.1;
+    }
+}
+
+@keyframes grass-wind {
+    0%, 100% {
+        /* sway left and slightly flatten */
+        transform: translateX(-50%) skewX(-3deg);
+    }
+    50% {
+        /* sway right and slightly rise */
+        transform: translateX(-50%) skewX(3deg);
     }
 }
 
@@ -301,7 +328,7 @@ body {
     width: auto;
     border-radius: 0.5rem;
     z-index: 100;
-    overflow: hidden; /* to crop the child element's overflow, specifically the sharp border corners of the p element on hover */
+    overflow: hidden;
     white-space: nowrap; /* to prevent the text from wrapping to the next line */
     box-shadow: 0px 2px 5px hsla(0, 0%, 0%, 0.2);
 
