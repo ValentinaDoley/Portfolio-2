@@ -9,6 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    margin: 0;
     background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 50%, #1E90FF 50%, #00008B 100%);
     color: #fff27a;
     /* overflow: hidden; */
@@ -198,19 +199,24 @@ body {
     min-height: 2em;
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px 1px #000000;
+    text-align: center;
+
+    /* position element is needed to use z-index */
+    position: relative;
     z-index: 2;
 
     /* FLOATING ANIMATION */
     animation: floating 3s ease-in-out infinite;
 }
-/* ANIMATED GRASS */
+/* GRASS */
 .grass {
     position: absolute;
     bottom: -60px;
     left: 50%;
+    transform: translateX(-50%) translateY(-30%);
     transform-origin: bottom center;
     /* make it wide enough to cover the text width for a nice patch */
-    width: 140%;
+    width: 300px;
     height: 45px;
 
     /* a radiel gradient for a rounded mound, lighter green top, darker bottom */
@@ -223,16 +229,12 @@ body {
     /* to place it behind shadow and text */
     z-index: -2;
 
-    /* WIND ANIMATION */
-    /* alternate so it sways back and fourth smoothly */
-    animation: grass-wind 4s ease-in-out infinite ;
-
     border-bottom: 3px solid #4a8c2c;
     
 }
 /*THE SHADOW EFFECT*/
 .shadow {
-    position: absolute;
+    position: fixed;
 
     /* Position it below the text and above the grass center*/
     bottom: -35px; /* exactly at grass level (ADJUST) */
@@ -240,10 +242,10 @@ body {
     transform: translateX(-50%);
 
     /* To create the oval shape (narrower than the grass patch */
-    width: 80%;
-    height: 10px;
+    width: 200px;
+    height: 12px;
 
-    background: rgba(0, 0, 139, 0.3);
+    background: rgba(51, 51, 51, 0.3);
     border-radius: 50%;
     filter: blur(5px);
     /* to sit between grass and text */
@@ -277,16 +279,6 @@ body {
     }
 }
 
-@keyframes grass-wind {
-    0%, 100% {
-        /* sway left and slightly flatten */
-        transform: translateX(-50%) skewX(-3deg);
-    }
-    50% {
-        /* sway right and slightly rise */
-        transform: translateX(-50%) skewX(3deg);
-    }
-}
 
 #next_btn {
     display: block;
