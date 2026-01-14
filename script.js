@@ -58,3 +58,34 @@ nextButton.addEventListener("click", () => {
     textElement.textContent = texts[currentIndex];
 });
 
+// For new window
+const modal = document.getElementById("info-modal");
+const modalBody = document.getElementById("modal-body");
+const closeBtn = document.querySelector(".close-btn");
+
+// function to open window (modal)
+function openModalWindow(title, content) {
+    modalBody.innerHTML = `
+        <h2 style="color: #fff27a; text-align: center;">${title}</h2>
+        <div class="window-text">${content}</div>
+        `;
+        modal.style.display = "block";
+}
+
+// Even listener for the project-icon
+document.getElementById("project-icon").addEventListener("click", (e) => {
+    e.preventDefault();
+    openModalWindow("Level 0: Projects", `
+        <p> • <b>To-do App: for a fish-like brain</b> - This to-do app is for people with 2 braincells (like me). Remember and get reminded of your work, tasks or your daily choreS for no more "I forgot"s.</p>
+        <p> • <b>upcoming..</b></p>`);
+});
+// for about me icon
+document.getElementById("about-icon").addEventListener("click", (e) => {
+    e.preventDefault(); // stop the default jump behavior
+    openModalWindow("Level 0: About me", `
+        <p>I'm Valentina Doley, a 2025 CS Grad and a self-taught Frontend Web Developer. I like building websites and have fun while doing it.</p>
+        <p><b>Current Quest:</b> Looking for a junior Developer position in 2026. </p>`);
+});
+
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = (e) => {if (e.target == modal) modal.style.display = "none";};

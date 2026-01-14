@@ -31,7 +31,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 20;
     transition: opacity 0.5s ease;
 }
 
@@ -356,8 +356,43 @@ body {
 .dropdown-content p:hover {
     background-color: #68c43e;
 }
-
-
-#projects {
+.modal {
     display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+.modal-content {
+    background: rgba(20, 20, 20, 0.9);
+    border: 2px solid #fff27a;
+
+    width: 400px;
+    height: 300px;
+    color: white;
+    margin: 10vh auto; /* here auto centers it horizontally*/
+    padding: 30px;
+    border-radius: 20px;
+    position: relative;
+    font-family: "IM FELL DW Pica", serif;
+    animation: windowPop 0.3s ease-out;
+}
+/* Close Button for the smaller window */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.close-btn:hover {
+    transform: scale(1.2);
+    text-shadow: 0 0 10px #fff27a;
+}
+@keyframes windowPop {
+    from { transform: scale(0.8); opacity: 0;}
+    to { transform: scale(1); opacity: 1;}
 }
