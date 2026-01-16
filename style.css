@@ -258,6 +258,11 @@ body {
 /* THE SHADOW ANIMATION */
     animation: shadow-scale 3s ease-in-out infinite;
 }
+.waves {
+    position: absolute;
+    /* to position it exactly on the horizon line */
+    bottom: ;
+}
 
 
 /* ANIMATION LOGIC */
@@ -362,6 +367,7 @@ body {
     left: 0;
     top: 0;
     width: 100%;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     z-index: 100;
 }

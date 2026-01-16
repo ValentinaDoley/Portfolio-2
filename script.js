@@ -29,7 +29,8 @@ window.addEventListener("load", function () {
 
 // to change texts when we click the button
 const texts = [
-    "Welcome to my portfolio.",
+    "Greetings, my guest!",
+    "Welcome to my humble portfolio abode.",
     "I'm Valentina Doley.",
     "I'm a self taught Frontend Web Developer.",
     "Nice to meet you sir/ma'am! *virtually handshakes*",
@@ -59,7 +60,7 @@ nextButton.addEventListener("click", () => {
 });
 
 // For new window
-const modal = document.getElementById("info-modal");
+const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modal-body");
 const closeBtn = document.querySelector(".close-btn");
 
@@ -82,10 +83,13 @@ document.getElementById("project-icon").addEventListener("click", (e) => {
 // for about me icon
 document.getElementById("about-icon").addEventListener("click", (e) => {
     e.preventDefault(); // stop the default jump behavior
-    openModalWindow("Level 0: About me", `
-        <p>I'm Valentina Doley, a 2025 CS Grad and a self-taught Frontend Web Developer. I like building websites and have fun while doing it.</p>
-        <p><b>Current Quest:</b> Looking for a junior Developer position in 2026. </p>`);
+    openModalWindow("Valentina's stats:", `
+        <p><b>Level:</b> 2025 CS Grad (NIT ArunACHAL Pradesh)</p>
+        <p><b>Experience:</b> Career Coach Trainee at PhysicsWallah, Bengaluru</p>
+        <p><b>Current Quest:</b> Looking for a junior Developer position in 2026. </p>
+        <p><b>Skills:</b> HTML, CSS, JavaScript, React, Git</p>`);
 });
 
 closeBtn.onclick = () => modal.style.display = "none";
 window.onclick = (e) => {if (e.target == modal) modal.style.display = "none";};
+
