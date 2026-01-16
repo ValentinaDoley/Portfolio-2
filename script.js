@@ -76,18 +76,21 @@ function openModalWindow(title, content) {
 // Even listener for the project-icon
 document.getElementById("project-icon").addEventListener("click", (e) => {
     e.preventDefault();
-    openModalWindow("Level 0: Projects", `
-        <p> • <b>To-do App: for a fish-like brain</b> - This to-do app is for people with 2 braincells (like me). Remember and get reminded of your work, tasks or your daily choreS for no more "I forgot"s.</p>
-        <p> • <b>upcoming..</b></p>`);
+    openModalWindow("some of Valentina's Projects", `
+        <p> • <b>To-do App | for a fish-like brain :</b> - This to-do app is for people with 2 braincells (like me). Remember and get reminded of your work, tasks or your daily chores for no more "I forgot"s.</p>
+        <p> tech stack used: HTML, CSS, JavaScript, Local Storage</p>
+        <p> • <b>Running action Game | :</b> Its a simple running action game played on the web with obstacles to along the way.</p>
+        <p> • <b>Customised Chat app | Tea-Cafe</b> Tea-Cafe is a messenger app with customable characters. Aside from chatting it also has multi-player gaming feature .</p>`);
 });
 // for about me icon
 document.getElementById("about-icon").addEventListener("click", (e) => {
     e.preventDefault(); // stop the default jump behavior
     openModalWindow("Valentina's stats:", `
-        <p><b>Level:</b> 2025 CS Grad (NIT ArunACHAL Pradesh)</p>
-        <p><b>Experience:</b> Career Coach Trainee at PhysicsWallah, Bengaluru</p>
-        <p><b>Current Quest:</b> Looking for a junior Developer position in 2026. </p>
-        <p><b>Skills:</b> HTML, CSS, JavaScript, React, Git</p>`);
+        <p><b>Level :</b> 2025 CS Grad (NIT Arunachal Pradesh)</p>
+        <p><b>Experience :</b> Career Coach Trainee at PhysicsWallah, Bengaluru</p>
+        <p><b>Current Quest :</b> Looking for a junior Frontend Developer and other web dev related positions in 2026. </p>
+        <p><b>Skills :</b> HTML, CSS, JavaScript, React, Git, NodeJs</p>
+        <p><b>Hobbies :</b> Music (guitar, songwriting, producing), Drawing Comics, Crocheting, Reading novels and webtoons,</p>`);
 });
 
 closeBtn.onclick = () => modal.style.display = "none";
