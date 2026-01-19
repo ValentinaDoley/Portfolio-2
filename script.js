@@ -77,9 +77,9 @@ function openModalWindow(title, content) {
 document.getElementById("project-icon").addEventListener("click", (e) => {
     e.preventDefault();
     openModalWindow("some of Valentina's Projects", `
-        <p> • <b>To-do App | for a fish-like brain :</b> - This to-do app is for people with 2 braincells (like me). Remember and get reminded of your work, tasks or your daily chores for no more "I forgot"s.</p>
-        <p> tech stack used: HTML, CSS, JavaScript, Local Storage</p>
-        <p> • <b>Running action Game | :</b> Its a simple running action game played on the web with obstacles to along the way.</p>
+        <p> • <b>To-do App | for fish-like brains :</b> - This to-do app is for people with 2 braincells (like me). Remember and get reminded of your work, tasks or your daily chores for no more "I forgot"s.</p>
+        <p> Tech stack used: HTML, CSS, JavaScript, Local Storage</p>
+        <p> • <b>Running action Game | Dumb-Run :</b> Its a simple running action game played on the web with obstacles to along the way.</p>
         <p> • <b>Customised Chat app | Tea-Cafe</b> Tea-Cafe is a messenger app with customable characters. Aside from chatting it also has multi-player gaming feature .</p>`);
 });
 // for about me icon

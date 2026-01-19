@@ -189,6 +189,7 @@ body {
     flex-direction: column; /* to stack childrens vertically */
     align-items: center; /* to center childrens horizontally */
     padding: 40px;
+    /* margin-bottom: -80px; */
     /* To ensure absolute elements don't spill inappropriately */
     position: relative;
 }
@@ -198,7 +199,7 @@ body {
     font-weight: 100;
     font-size: 1.5rem;
     /* Increased bottom margin for grass space */
-    margin: 60px 60px 0 60px; /*top, right, bottom, left*/
+    margin-bottom: 60px 60px 0 60px; /*top right bottom left*/
     min-height: 2em;
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px 1px #000000;
@@ -216,8 +217,8 @@ body {
 .grass {
     position: absolute;
     bottom: -60px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-30%);
+    left: 50%; /* centers 50% from left*/
+    transform: translateX(-50%) translateY(-60%);
     transform-origin: bottom center;
     /* make it wide enough to cover the text width for a nice patch */
     width: 300px;
@@ -241,7 +242,7 @@ body {
     position: absolute;
 
     /* Position it below the text and above the grass center*/
-    bottom: -20px; /* exactly at grass level (ADJUST) */
+    bottom: -10px; /* exactly at grass level (ADJUST) */
     left: 50%;
     transform: translateX(-50%);
 
@@ -283,148 +284,28 @@ body {
         opacity: 0.1;
     }
 }
-/* 1. Base Cloud Style */
-.cloud {
+
+.cloud { /* the base*/
     position: absolute;
-    background: white;
-    width: 100px;
+    background: #ffffff;
+    border-radius: 50px;
+    width: 50px;
     height: 30px;
-    border-radius: 50px;
-    opacity: 0.8;
-    z-index: 1; /* Behind the text but above the sky */
-    filter: blur(2px);
 }
-
-/* 2. Create the Cloud Shape (using pseudo-elements) */
-.cloud::after, .cloud::before {
-    content: '';
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-}
-/* Base Cloud Shape */
-.cloud {
-    position: absolute;
-    background: white;
-    border-radius: 50px;
-    opacity: 0.7;
-    z-index: 1;
-    filter: blur(3px);
-}
-
-.cloud::after, .cloud::before {
-    content: '';
-    position: absolute;
-    background: inherit;
-    border-radius: 50%;
-}
-
-/* Size Variants */
-.cloud-small { width: 60px; height: 20px; }
-.cloud-small::after { width: 30px; height: 30px; top: -15px; left: 10px; }
-.cloud-small::before { width: 25px; height: 25px; top: -10px; left: 25px; }
-
-.cloud-med { width: 100px; height: 30px; }
-.cloud-med::after { width: 50px; height: 50px; top: -25px; left: 15px; }
-.cloud-med::before { width: 40px; height: 40px; top: -15px; left: 45px; }
-
-.cloud-large { width: 150px; height: 45px; }
-.cloud-large::after { width: 75px; height: 75px; top: -35px; left: 20px; }
-.cloud-large::before { width: 60px; height: 60px; top: -25px; left: 70px; }
-
-/* Positions and Slower Speeds */
-.c1 { top: -120px; left: -300px; animation: drift 50s linear infinite; }
-.c2 { top: -180px; left: -100px; animation: drift 70s linear infinite reverse; opacity: 0.5; }
-.c3 { top: -80px; left: 200px; animation: drift 60s linear infinite; opacity: 0.8; }
-.c4 { top: -140px; left: 400px; animation: drift 80s linear infinite reverse; }
-.c5 { top: -220px; left: -500px; animation: drift 90s linear infinite; opacity: 0.4; }
-
-@keyframes drift {
-    from { 
-        transform: translateX(-300px); /* Start far enough left to be off-screen */
-        opacity: 0; 
-    }
-    10% { opacity: 0.7; } /* Fade in as it enters the view */
-    90% { opacity: 0.7; } /* Stay visible across the screen */
-    to { 
-        transform: translateX(100vw); /* End past the right edge of the screen */
-        opacity: 0; /* Fade out before snapping back */
-    }
-}
-/* 1. Boat Container */
-.boat {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 10;
-    
-    /* 1. Add this line to increase size (e.g., 1.5 is 50% larger) */
-    transform: scale(1.5); 
-    
-    /* 2. Update the animation name to the new one below */
-    animation: boat-bob-scaled 5s ease-in-out infinite; 
-}
-/* 2. The Mast (The vertical pole) */
-.mast {
-    width: 4px;
+.cloud::after, .cloud::before { /* the puff*/
+    content: "";
+    width: 100px;
     height: 50px;
-    background: #4e342e; /* Dark wood */
-    position: absolute;
-    bottom: 15px;
-    z-index: 2;
+    border-radius: 50%;
+    top: -15px; /* this line lifts the circle so it sits on top of the base */
 }
 
-/* 3. The Sails (Two triangles for realism) */
-.sails-container {
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: -2px;
-}
-
-.main-sail {
-    width: 0;
-    height: 0;
-    border-left: 25px solid transparent;
-    border-bottom: 45px solid #f5f5f5; /* Off-white for texture */
-    margin-right: 2px;
-}
-
-.front-sail {
-    width: 0;
-    height: 0;
-    border-right: 15px solid transparent;
-    border-bottom: 30px solid #e0e0e0; /* Slightly darker gray */
-}
-
-/* 4. The Realistic Hull */
-.hull {
-    width: 90px;
-    height: 22px;
-    background: linear-gradient(to bottom, #795548, #3e2723); /* Wood gradient */
-    border-top: 1px solid rgba(255,255,255,0.3); /* Highlights the deck */
-    clip-path: polygon(0% 0%, 100% 0%, 82% 100%, 18% 100%);
-    z-index: 3;
-}
-/* 3. Create a new animation that respects the scale */
-@keyframes boat-bob-scaled {
-    0%, 100% {
-        transform: scale(1.5) translateY(0) rotate(0deg);
-    }
-    50% {
-        transform: scale(1.5) translateY(-8px) rotate(3deg);
-    }
-}
 /* end of boat animation */
 
 
 #next_btn {
     display: block;
     margin-top: 20px;
-    
     background-color: transparent;
     border: transparent;
     color: white;
