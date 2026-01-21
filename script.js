@@ -86,11 +86,11 @@ document.getElementById("project-icon").addEventListener("click", (e) => {
 document.getElementById("about-icon").addEventListener("click", (e) => {
     e.preventDefault(); // stop the default jump behavior
     openModalWindow("Valentina's stats:", `
-        <p><b>Level :</b> 2025 CS Grad (NIT Arunachal Pradesh)</p>
-        <p><b>Experience :</b> Career Coach Trainee at PhysicsWallah, Bengaluru</p>
+        <p><b>Education :</b> 2025 CSE Grad (NIT Arunachal Pradesh)</p>
+        <p><b>Experience :</b> • Career Coach Trainee at PhysicsWallah, Bengaluru • Business Development at Edustation, Bengaluru</p>
         <p><b>Current Quest :</b> Looking for a junior Frontend Developer and other web dev related positions in 2026. </p>
         <p><b>Skills :</b> HTML, CSS, JavaScript, React, Git, NodeJs</p>
-        <p><b>Hobbies :</b> Music (guitar, songwriting, producing), Drawing Comics, Crocheting, Reading novels and webtoons,</p>`);
+        <p><b>Extra hobbies :</b> Music (songwriting, producing), Drawing Comics, Crocheting, Reading novels and webtoons,</p>`);
 });
 
 closeBtn.onclick = () => modal.style.display = "none";
