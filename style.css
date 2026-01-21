@@ -260,7 +260,7 @@ body {
 .cloud-small {scale: 0.7;}
 .c1 {top:10%; left: -100px; animation: drift 100s linear infinite;}
 .c2 {top:30%; left: -80px; animation: drift 85s linear infinite;}
-.c3 {top:750%; left: -60px; animation: drift-2 90s linear infinite;}
+.c3 {top:75%; left: -60px; animation: drift-2 90s linear infinite;}
 .c4 {top:75%; left: -50px; animation: drift-2 95s linear infinite;}
 .c5 {top:50%; left: -30px; animation: drift-2 102s linear infinite;}
 .c6 {top:70%; left: -70px; animation: drift-2 102s linear infinite;}
