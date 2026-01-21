@@ -10,8 +10,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 50%, #7caddd 50%, #111170 100%); /* color for sky and water */
-    color: #fff27a;
+    background: linear-gradient(to bottom, #26c1ff 0%, #7eb4fc 50%, #6996f7 50%, #05053a 100%); /* color for sky and water */
     overflow: hidden;
 }
 
@@ -231,8 +230,9 @@ body {
     width: 80px;
     height: 40px;
     filter: blur(2px);
+    /* opacity: ; */
     box-shadow: 2px 1px 1px rgb(183, 128, 255),
-                2px 1px 2px rgb(255, 186, 95);
+                2px 1px 2px rgb(255, 95, 95);
 }
 .cloud::after, .cloud::before { /* the puff*/
     content: "";
