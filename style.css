@@ -253,7 +253,7 @@ body {
     left: 25px;
     width: 35px;
     height: 35px;
-    box-shadow: 1px 1px 1px black;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.781);
 }
 .cloud-large {scale: 1.5;}
 .cloud-med {scale: 1.0;}
@@ -269,7 +269,7 @@ body {
     to { transform: translateX(100vw);}
 }
 @keyframes drift-2 { /* for clouds to come from left 100px*/
-    from{transform: translateX(-2px);}
+    from{transform: translateX(200px);}
     to { transform: translateX(100vw);}
 }
 
@@ -430,21 +430,41 @@ body {
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     z-index: 100;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 .modal-content {
     background: rgba(20, 20, 20, 0.9);
     border: 2px solid #fff27a;
 
-    width: 400px;
-    height: 300px;
+    width: 80%;
+    max-width: 450px; /* Prevents the content from getting too big on desktop */
+    height: auto; /* Let the box grow with the text content */
+    min-height: 300px;
     color: white;
     margin: 10vh auto; /* here auto centers it horizontally*/
-    padding: 30px;
+    padding: 20px;
+     /* Ensures padding doesn't add to the width */
     border-radius: 20px;
     position: relative;
     font-family: "IM FELL DW Pica", serif;
     animation: windowPop 0.3s ease-out;
 }
+@media (max-width: 600px) {
+    #dialogue-container {
+        padding: 15px; /* Less space on the sides for small screens */
+    }
+    
+    #dialogue-text {
+        font-size: 1.2rem; /* Shrink text slightly so it doesn't wrap awkwardly */
+    }
+
+    .grass {
+        width: 90vw; /* Make the grass scale with the phone width */
+    }
+}
+
 /* Close Button for the smaller window */
 .close-btn {
     position: absolute;
