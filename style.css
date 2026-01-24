@@ -30,7 +30,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 20;
+    z-index: 40;
     transition: opacity 0.5s ease;
 }
 
@@ -388,7 +388,7 @@ body {
     background: white;
     width: auto;
     border-radius: 0.5rem;
-    z-index: 100;
+    z-index: 90;
     overflow: hidden;
     white-space: nowrap; /* to prevent the text from wrapping to the next line */
     box-shadow: 0px 2px 5px hsla(0, 0%, 0%, 0.2);
@@ -481,4 +481,19 @@ body {
 @keyframes windowPop {
     from { transform: scale(0.8); opacity: 0;}
     to { transform: scale(1); opacity: 1;}
+}
+
+/* for music btn */
+.music-btn {
+    position: fixed;
+    font-size: 1.5rem;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: transparent;
+    border: 0;
+    backdrop-filter: blur(8px);
+    z-index: 30;
+    color: #10516b;
+    cursor: pointer;
 }

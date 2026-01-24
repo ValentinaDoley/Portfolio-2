@@ -96,3 +96,25 @@ document.getElementById("about-icon").addEventListener("click", (e) => {
 closeBtn.onclick = () => modal.style.display = "none";
 window.onclick = (e) => {if (e.target == modal) modal.style.display = "none";};
 
+// for bg music
+const music = document.getElementById('bg-music');
+const musicBtn = document.getElementById('music-toggle');
+const musicIcon = document.getElementById('music-icon');
+
+const songs = [
+    "music/a-gangster-into-hawai-110-209266.mp3",
+    "music/jeux-de-table-a-hawai-338553.mp3"
+];
+
+music.src = songs[0];
+
+musicBtn.addEventListener('click', () => {
+    if(music.paused) {
+        music.play();
+        music.volume = 1;
+        musicIcon.innerText = "🔊⏸️";
+    } else {
+        music.pause();
+        musicIcon.innerText = "🔊▶️";
+    }
+});
