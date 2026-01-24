@@ -279,7 +279,7 @@ body {
     position: absolute;
     bottom: -60px;
     left: 50%; /* centers 50% from left*/
-    transform: translateX(-50%) translateY(-60%);
+    transform: translateX(-50%) translateY(-50%);
     transform-origin: bottom center;
     /* make it wide enough to cover the text width for a nice patch */
     width: 300px;
