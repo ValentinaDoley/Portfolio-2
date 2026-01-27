@@ -14,18 +14,6 @@ window.addEventListener("load", function () {
     }, 2000); // 1.5 s delay
 });
 
-// const textContainer = document.querySelector("#dialogue-text");
-// const text = textContainer.textContent.trim();
-
-// // This clear the old text and replaces it with spans for every letter
-// textContainer.innerHTML = text
-//   .split("")
-//   .map((letter, index) => {
-//     // If the letter is a space, use a non-breaking space entity so it doesn't vanish
-//     const content = letter === " " ? "&nbsp;" : letter;
-//     return `<span style="animation-delay: ${index * 0.1}s">${content}</span>`;
-//   })
-//   .join("");
 
 // to change texts when we click the button
 const texts = [
@@ -102,6 +90,7 @@ const musicBtn = document.getElementById('music-toggle');
 const musicIcon = document.getElementById('music-icon');
 
 const songs = [
+    "music/birds-sunrise-portete-beach-16934.mp3",
     "music/a-gangster-into-hawai-110-209266.mp3",
     "music/jeux-de-table-a-hawai-338553.mp3"
 ];
@@ -118,3 +107,6 @@ musicBtn.addEventListener('click', () => {
         musicIcon.innerText = "🔊▶️";
     }
 });
+
+let currentSongIndex = [0];
+const nextTrack = document.getElementById('next-track');
