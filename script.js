@@ -108,5 +108,11 @@ musicBtn.addEventListener('click', () => {
     }
 });
 
-let currentSongIndex = [0];
-const nextTrack = document.getElementById('next-track');
+let option = document.querySelector(".options");
+option.addEventListener('click', () => {
+    if(option.style.display = "none") {
+    option.style.display = "block";
+    }else {
+        option.style.display = "none";
+    }
+})
